@@ -25,7 +25,7 @@ while True:
         while True:
             nombre = input("Ingrese el nombre del producto: ")
 
-            if " " in nombre:
+            if nombre == "" in nombre:
                 print("El nombre del producto no puede estar vacio.")
                 continue
 
@@ -54,10 +54,50 @@ while True:
 
         productos[nombre] = [stock, precio]
 
+    def mostrar_productos(productos):
+        if productos == {}:
+            print("No existen productos registrados.")
+            return
+        else:
+            print(productos)
+
+    def buscar_producto(productos):
+        if productos == {}:
+            print("No existen productos registrados.")
+            return
+        producto = input("Ingrese el producto a buscar: ")
+        if producto in productos:
+            print("El producto que busca si existe.")
+        else:
+            print("No se encotro el producto que buscado.")
+            return
+        
+    def producto_mas_caro(productos):
+        if productos == {}:
+            print("No existen productos registrados.")
+        else:
+            print("")
     if op == 1:
         print("Agregando productos...")
         agregar_producto(productos)
         print("Producto Agregado con exito!")
+
+    if op == 2:
+        print("Mostrando Productos...")
+        print()
+        mostrar_productos(productos)
+    
+    if op == 3:
+        print("Buscando Producto...")
+        buscar_producto(productos)
+
+    if op == 4:
+        print("El producto más caro es: ")
+
+    if op == 5:
+        print("Gracias por usar el programa, ¡Vuelva pronto!")
+
+
 
 
 
