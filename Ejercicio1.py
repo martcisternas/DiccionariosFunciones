@@ -73,10 +73,21 @@ while True:
             return
         
     def producto_mas_caro(productos):
-        if productos == {}:
-            print("No existen productos registrados.")
-        else:
-            print("")
+        if len(productos) == 0:
+            print("No existen productos")
+            return
+        mayor = 0
+        nombreMayor = ""
+
+        for nombre in productos:
+            precio = productos[nombre][1]
+
+            if precio > mayor:
+                mayor = precio
+                nombreMayor = nombre
+        print(f"El producto más caro es {nombreMayor}")
+        print(f"Su valor es {mayor}")
+    
     if op == 1:
         print("Agregando productos...")
         agregar_producto(productos)
@@ -93,6 +104,7 @@ while True:
 
     if op == 4:
         print("El producto más caro es: ")
+        producto_mas_caro(productos)
 
     if op == 5:
         print("Gracias por usar el programa, ¡Vuelva pronto!")
